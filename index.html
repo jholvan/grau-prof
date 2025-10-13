@@ -856,6 +856,10 @@ Proposta válida até: ${dataEncerramentoBR}
         <b>Parcelamento:</b> <span class="text-green-700">${parcelas}x</span> de <span class="text-green-700 font-bold">R$ ${valorParcela.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
       </div>
       <div class="mb-2">
+      <!-- Assinatura -->
+  <span style="font-weight:bold; color:#444; display:inline-block; margin-top:12px;">
+    ${usuarioLogado ? usuarioLogado.cargo + ': ' + usuarioLogado.nome : ''}
+  </span>
         <b>Proposta válida até:</b> <span class="text-red-700 font-bold">${dataEncerramentoBR}</span>
       </div>
       <div class="mt-3 flex flex-col sm:flex-row gap-2">
