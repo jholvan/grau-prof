@@ -80,6 +80,15 @@
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
       font-size: 1.1rem;
     }
+    
+    .logo-canto {
+      position: absolute;
+      top: 18px;
+      right: 24px;
+      width: 80px;
+      height: auto;
+      z-index: 10;
+    }
 
     .modal-overlay {
       position: fixed;
@@ -810,6 +819,7 @@ Valor cheio: R$ ${precoCheio.toLocaleString('pt-BR', { minimumFractionDigits: 2 
 Desconto: ${descontoStr}%
 Valor com desconto: R$ ${valorFinal.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
 Parcelas: ${parcelas}x de R$ ${valorParcela.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+${usuarioLogado ? usuarioLogado.cargo + ': ' + usuarioLogado.nome : ''}
 Proposta válida até: ${dataEncerramentoBR}
   `;
 
@@ -838,6 +848,7 @@ Proposta válida até: ${dataEncerramentoBR}
       const resumoHTML = `
     <div id="areaParaCopiarImagem" class="mt-6 bg-yellow-100 border border-yellow-200 rounded-lg p-6 text-black relative fade-in">
       <div class="absolute top-2 right-2 text-2xl text-yellow-400"><i class="fas fa-certificate"></i></div>
+      <img src="favicon1.png" class="logo-canto" alt="Logo">
       <h2 class="text-2xl font-bold mb-2">Resumo da Proposta</h2>
       <div class="mb-2"><b>Cliente:</b> ${nomeCliente} <br>
         <b>Nº Cliente:</b> ${numeroCliente} <br>
