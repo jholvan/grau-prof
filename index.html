@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -249,57 +250,54 @@
             <div class="flex items-center gap-2 text-blue-700 font-semibold"></div>
             <div class="text-gray-500 text-xs mt-1"></div>
           </div>
-          <!-- FORMULÁRIO COMEÇA AQUI -->
-          <div id="formularioArea">
-            <form id="formDesconto" onsubmit="event.preventDefault(); exibirInfoTurma();">
-              <div class="mb-4">
-                <label for="numeroCliente" class="block font-semibold mb-1">Número do Cliente:</label>
-                <input type="text" id="numeroCliente" class="w-full border rounded px-3 py-2"
-                  placeholder="Digite o número do cliente" pattern="\d*" inputmode="numeric">
-              </div>
-              <div class="mb-4">
-                <label for="cpfCliente" class="block font-semibold mb-1">CPF do Cliente:</label>
-                <input type="text" id="cpfCliente" class="w-full border rounded px-3 py-2"
-                  placeholder="000.000.000-00" maxlength="14" inputmode="numeric" autocomplete="off">
-              </div>
-              <div class="mb-4">
-                <label for="nomeCliente" class="block font-semibold mb-1">Nome do Cliente:</label>
-                <input type="text" id="nomeCliente" class="w-full border rounded px-3 py-2"
-                  placeholder="Digite o nome do cliente" maxlength="100">
-              </div>
-              <div class="mb-4 flex items-center gap-3">
-                <label for="modalidade" class="block font-semibold mb-1">Modalidade:</label>
-                <select id="modalidade" class="border rounded px-3 py-2"></select>
-                <span id="iconModalidade"></span>
-              </div>
-              <div class="mb-4">
-                <label for="curso" class="block font-semibold mb-1">Escolha o curso:</label>
-                <select id="curso" class="w-full border rounded px-3 py-2"></select>
-              </div>
-              <div class="mb-4">
-                <label for="turno" class="block font-semibold mb-1">Escolha o turno:</label>
-                <select id="turno" class="w-full border rounded px-3 py-2"></select>
-              </div>
-              <div class="flex flex-col sm:flex-row gap-4 mb-4">
-                <button type="submit" id="btnTurma"
-                  class="bg-blue-700 hover:bg-blue-800 text-white font-semibold rounded px-6 py-2 transition-colors duration-200">
-                  Consultar Turma
-                </button>
-                <button type="button" onclick="limparFormulario()"
-                  class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold rounded px-6 py-2 transition-colors duration-200 flex items-center gap-2">
-                  <i class="fas fa-broom"></i> Limpar
-                </button>
-              </div>
-              <div id="alertaUltimaBolsa"
-                class="bg-yellow-100 border-l-4 border-yellow-400 text-yellow-800 p-4 mb-4 rounded font-bold"
-                style="display:none;">
-                AVISO: ÚLTIMA BOLSA DISPONÍVEL!
-              </div>
-              <div id="resultado" class="mb-4" role="region" aria-live="polite"></div>
-              <div id="areaDesconto"></div>
-            </form>
-          </div>
-          <!-- FORMULÁRIO TERMINA AQUI -->
+          <form id="formDesconto" onsubmit="event.preventDefault(); exibirInfoTurma();">
+            <div class="mb-4">
+              <label for="numeroCliente" class="block font-semibold mb-1">Número do Cliente:</label>
+              <input type="text" id="numeroCliente" class="w-full border rounded px-3 py-2"
+                placeholder="Digite o número do cliente" pattern="\d*" inputmode="numeric">
+            </div>
+            <!-- CPF do Cliente abaixo do número do cliente -->
+            <div class="mb-4">
+              <label for="cpfCliente" class="block font-semibold mb-1">CPF do Cliente:</label>
+              <input type="text" id="cpfCliente" class="w-full border rounded px-3 py-2"
+                placeholder="000.000.000-00" maxlength="14" inputmode="numeric" autocomplete="off">
+            </div>
+            <div class="mb-4">
+              <label for="nomeCliente" class="block font-semibold mb-1">Nome do Cliente:</label>
+              <input type="text" id="nomeCliente" class="w-full border rounded px-3 py-2"
+                placeholder="Digite o nome do cliente" maxlength="100">
+            </div>
+            <div class="mb-4 flex items-center gap-3">
+              <label for="modalidade" class="block font-semibold mb-1">Modalidade:</label>
+              <select id="modalidade" class="border rounded px-3 py-2"></select>
+              <span id="iconModalidade"></span>
+            </div>
+            <div class="mb-4">
+              <label for="curso" class="block font-semibold mb-1">Escolha o curso:</label>
+              <select id="curso" class="w-full border rounded px-3 py-2"></select>
+            </div>
+            <div class="mb-4">
+              <label for="turno" class="block font-semibold mb-1">Escolha o turno:</label>
+              <select id="turno" class="w-full border rounded px-3 py-2"></select>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4 mb-4">
+              <button type="submit" id="btnTurma"
+                class="bg-blue-700 hover:bg-blue-800 text-white font-semibold rounded px-6 py-2 transition-colors duration-200">
+                Consultar Turma
+              </button>
+              <button type="button" onclick="limparFormulario()"
+                class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold rounded px-6 py-2 transition-colors duration-200 flex items-center gap-2">
+                <i class="fas fa-broom"></i> Limpar
+              </button>
+            </div>
+            <div id="alertaUltimaBolsa"
+              class="bg-yellow-100 border-l-4 border-yellow-400 text-yellow-800 p-4 mb-4 rounded font-bold"
+              style="display:none;">
+              AVISO: ÚLTIMA BOLSA DISPONÍVEL!
+            </div>
+            <div id="resultado" class="mb-4" role="region" aria-live="polite"></div>
+            <div id="areaDesconto"></div>
+          </form>
           <div id="timer" class="text-center text-red-600 font-semibold mt-6"></div>
         </div>
         <div id="printArea" class="hidden"></div>
@@ -882,9 +880,6 @@ Proposta válida até: ${dataEncerramentoBR}
         <button type="button" onclick="compartilharResumo()" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded px-4 py-2 w-full sm:w-auto transition-colors duration-200">
           <i class="fas fa-share-alt"></i> Compartilhar
         </button>
-        <button type="button" onclick="novaProposta()" class="bg-gray-500 hover:bg-gray-700 text-white font-semibold rounded px-4 py-2 w-full sm:w-auto transition-colors duration-200">
-          <i class="fas fa-plus-circle"></i> Nova proposta
-        </button>
       </div>
       <div class="text-xs text-yellow-600 mt-2">*Proposta válida por tempo limitado. Válida somente para o cliente informado.</div>
     </div>
@@ -894,13 +889,6 @@ Proposta válida até: ${dataEncerramentoBR}
       lastResumoHTML = resumoHTML;
       iniciarTimer(6 * 60 * 60);
       resultadoDiv.innerHTML += resumoHTML;
-
-      document.getElementById('formularioArea').style.display = 'none';
-    }
-
-    function novaProposta() {
-      limparFormulario();
-      document.getElementById('formularioArea').style.display = '';
     }
 
     async function copiarResumoComoImagem() {
