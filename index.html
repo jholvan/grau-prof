@@ -870,8 +870,15 @@ Proposta válida até: ${dataEncerramentoBR}
 let alertaUltimaBolsaHTML = '';
 if (descontoStr === "35") {
   alertaUltimaBolsaHTML = `
-    <div class="bg-yellow-300 border-l-4 border-yellow-500 text-red-800 p-3 mb-4 rounded-lg shadow-md font-bold text-center text-lg animate-pulse">
-      🚨 AVISO: ÚLTIMA BOLSA DISPONÍVEL! 🚨
+    <div class="inline-block bg-yellow-300 border-2 border-red-600 text-red-900 px-5 py-2 rounded-lg shadow-lg font-extrabold text-center text-lg"
+         style="box-shadow: 0 2px 12px 0 rgba(0,0,0,0.12); letter-spacing: 1px;">
+      <span class="inline-flex items-center gap-2">
+        <svg height="22" width="22" viewBox="0 0 24 24" fill="none" style="vertical-align: middle;">
+          <circle cx="12" cy="12" r="11" stroke="#e11d48" stroke-width="2" fill="#fbbf24"/>
+          <text x="12" y="17" text-anchor="middle" font-size="15" fill="#e11d48" font-family="Arial" font-weight="bold">!</text>
+        </svg>
+        🚨AVISO: ÚLTIMA BOLSA DISPONÍVEL!🚨
+      </span>
     </div>
   `;
 }
