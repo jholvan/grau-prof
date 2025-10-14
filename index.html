@@ -587,9 +587,9 @@ document.getElementById('numeroCliente').addEventListener('input', function(e) {
       const modalidade = document.getElementById('modalidade').value || "";
       const iconSpan = document.getElementById('iconModalidade');
       if (modalidade.toLowerCase().includes('presencial')) {
-        iconSpan.innerHTML = '<i class="fas fa-users text-blue-600" title="Presencial"></i>';
+        iconSpan.innerHTML = '<i class="fas fa-users text-red-600" title="Presencial"></i>';
       } else if (modalidade.toLowerCase().includes('interativo')) {
-        iconSpan.innerHTML = '<i class="fas fa-laptop text-blue-700" title="Interativo"></i>';
+        iconSpan.innerHTML = '<i class="fas fa-laptop text-red-700" title="Interativo"></i>';
       } else {
         iconSpan.innerHTML = '';
       }
