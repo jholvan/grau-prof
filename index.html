@@ -620,7 +620,8 @@ document.getElementById('numeroCliente').addEventListener('input', function(e) {
       }, 1000);
     }
     function mostrarInfoTurma() {
-      const numeroCliente = document.getElementById("numeroCliente").value.trim();
+      const numeroClienteRaw = document.getElementById("numeroCliente").value.trim();
+      const numeroCliente = numeroClienteRaw.replace(/\D/g, ''); // remove máscara
       const cpfCliente = document.getElementById("cpfCliente").value.trim();
       const nomeCliente = document.getElementById("nomeCliente").value.trim();
       const turnoSelecionado = document.getElementById("turno").value;
