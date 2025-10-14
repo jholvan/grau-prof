@@ -878,11 +878,22 @@ Proposta válida até: ${dataEncerramentoBR}
       </table></div>`;
       }
 
-      // CPF exibido logo após número do cliente
-      const resumoHTML = `
+      // AVISO ÚLTIMA BOLSA DENTRO DA IMAGEM
+    let alertaUltimaBolsaHTML = '';
+    if (descontoStr === "35") {
+      alertaUltimaBolsaHTML = `
+        <div class="bg-yellow-300 border-l-4 border-yellow-500 text-red-800 p-3 mb-4 rounded-lg shadow-md font-bold text-center text-lg animate-pulse">
+          🚨 AVISO: ÚLTIMA BOLSA DISPONÍVEL! 🚨
+        </div>
+      `;
+    }
+
+    // CPF exibido logo após número do cliente
+    const resumoHTML = `
     <div id="areaParaCopiarImagem" class="mt-6 bg-yellow-100 border border-yellow-200 rounded-lg p-6 text-black relative fade-in">
       <img src="imagens/grau.png" class="logo-canto" alt="Logo">
       <h2 class="text-2xl font-bold mb-2">Resumo da Proposta</h2>
+      ${alertaUltimaBolsaHTML}
       <div class="mb-2"><b>Cliente:</b> ${nomeCliente} <br>
         <b>Nº Cliente:</b> ${numeroCliente} <br>
         <b>CPF:</b> ${cpfCliente} <br>
