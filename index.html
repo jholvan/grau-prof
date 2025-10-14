@@ -797,12 +797,6 @@ document.getElementById('numeroCliente').addEventListener('input', function(e) {
         return;
       }
 
-      if (descontoStr === "35") {
-        document.getElementById("alertaUltimaBolsa").style.display = "block";
-      } else {
-        document.getElementById("alertaUltimaBolsa").style.display = "none";
-      }
-
       const agora = new Date();
       const dataFim = new Date(agora.getTime() + 6 * 60 * 60 * 1000); // 6 horas
       resumoDataFim = dataFim;
