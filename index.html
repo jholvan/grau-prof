@@ -958,21 +958,38 @@ const resumoHTML = `
     }
 
     function iniciarTimer(segundos) {
-      const timerDiv = document.getElementById("timer");
-      let tempoRestante = segundos;
+  const timerDiv = document.getElementById("timer");
+  let tempoRestante = segundos;
+
+  // sempre mostra o timer ao iniciar
+  timerDiv.style.display = "block";
+
+  // limpa qualquer timer anterior antes de começar outro
+  clearInterval(countdownInterval);
+
+  function atualizarTimer() {
+    const minutos = Math.floor(tempoRestante / 60);
+    const segundosRestantes = tempoRestante % 60;
+    timerDiv.innerHTML = `<i class="fas fa-hourglass-half"></i> 
+      Oferta expira em ${minutos}:${segundosRestantes
+        .toString()
+        .padStart(2, "0")}`;
+  }
+
+  atualizarTimer();
+
+  countdownInterval = setInterval(() => {
+    tempoRestante--;
+    atualizarTimer();
+
+    if (tempoRestante <= 0) {
       clearInterval(countdownInterval);
-      atualizarTimer();
-      countdownInterval = setInterval(() => {
-        tempoRestante--;
-        atualizarTimer();
-        if (tempoRestante <= 0) {
-          clearInterval(countdownInterval);
-          timerDiv.innerHTML = `<i class="fas fa-hourglass-end"></i> Proposta expirada! Gere novamente para continuar.`;
-          document.getElementById("resultado").innerHTML = "";
-          document.getElementById("areaDesconto").innerHTML = "";
-          document.getElementById("alertaUltimaBolsa").style.display = "none";
-        }
-      }, 1000);
+      timerDiv.innerHTML = `<i class="fas fa-hourglass-end"></i> 
+        Proposta expirada! Gere novamente para continuar.`;
+    }
+  }, 1000);
+}
+
       function atualizarTimer() {
         const min = Math.floor(tempoRestante / 60);
         const sec = tempoRestante % 60;
@@ -997,18 +1014,24 @@ const resumoHTML = `
       window.open(link, '_blank');
     }
     function limparFormulario() {
-      document.getElementById("formDesconto").reset();
-      document.getElementById("resultado").innerHTML = "";
-      document.getElementById("areaDesconto").innerHTML = "";
-      document.getElementById("alertaUltimaBolsa").style.display = "none";
-      document.getElementById("timer").innerHTML = "";
-      clearInterval(countdownInterval);
-      resumoDataFim = null;
-      resumoInicioTurma = '';
-      resumoDiasAula = '';
-      resumoTurmaDisciplinas = [];
-      resumoModalidade = '';
-    }
+  document.getElementById("formDesconto").reset();
+  document.getElementById("resultado").innerHTML = "";
+  document.getElementById("areaDesconto").innerHTML = "";
+  document.getElementById("alertaUltimaBolsa").style.display = "none";
+
+  // 🔹 Para e esconde o timer
+  clearInterval(countdownInterval);
+  const timerDiv = document.getElementById("timer");
+  timerDiv.innerHTML = "";
+  timerDiv.style.display = "none";
+
+  // 🔹 Zera variáveis do resumo
+  resumoDataFim = null;
+  resumoInicioTurma = "";
+  resumoDiasAula = "";
+  resumoTurmaDisciplinas = [];
+  resumoModalidade = "";
+}
   </script>
 </body>
 </html>
