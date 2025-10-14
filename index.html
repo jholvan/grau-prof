@@ -131,6 +131,21 @@
       z-index: 10;
       transition: color 0.2s;
     }
+    
+    input, select {
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  width: 100%;
+  outline: none;
+  transition: all 0.2s;
+}
+
+input:focus, select:focus {
+  border-color: #a3161d;
+  box-shadow: 0 0 0 3px rgba(163,22,29,0.2);
+}
+
 
     .modal-close-btn:hover {
       color: #f00;
