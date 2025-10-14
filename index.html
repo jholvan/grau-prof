@@ -997,18 +997,25 @@ const resumoHTML = `
       window.open(link, '_blank');
     }
     function limparFormulario() {
-      document.getElementById("formDesconto").reset();
-      document.getElementById("resultado").innerHTML = "";
-      document.getElementById("areaDesconto").innerHTML = "";
-      document.getElementById("alertaUltimaBolsa").style.display = "none";
-      document.getElementById("timer").innerHTML = "";
-      clearInterval(countdownInterval);
-      resumoDataFim = null;
-      resumoInicioTurma = '';
-      resumoDiasAula = '';
-      resumoTurmaDisciplinas = [];
-      resumoModalidade = '';
-    }
+  document.getElementById("formDesconto").reset();
+  document.getElementById("resultado").innerHTML = "";
+  document.getElementById("areaDesconto").innerHTML = "";
+  document.getElementById("alertaUltimaBolsa").style.display = "none";
+
+  // 🔹 Para e esconde o timer
+  clearInterval(countdownInterval);
+  const timerDiv = document.getElementById("timer");
+  timerDiv.innerHTML = "";
+  timerDiv.style.display = "none";
+
+  // 🔹 Zera variáveis do resumo
+  resumoDataFim = null;
+  resumoInicioTurma = "";
+  resumoDiasAula = "";
+  resumoTurmaDisciplinas = [];
+  resumoModalidade = "";
+}
+
   </script>
 </body>
 </html>
