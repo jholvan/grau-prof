@@ -186,7 +186,7 @@ input:focus, select:focus {
           <p></p> <img src="imagens/grau.png" <p="">
           <p></p>
         </div>
-        <div id="loginLoadMsg" class="mb-4 flex items-center gap-2 text-blue-600 font-semibold">
+        <div id="loginLoadMsg" class="mb-4 flex items-center gap-2 text-red-600 font-semibold">
           <i class="fas fa-spinner fa-spin"></i>
           Carregando dados de acesso...
         </div>
@@ -256,7 +256,7 @@ input:focus, select:focus {
               </nav>
             </div>
           </div>
-          <div class="hidden sm:flex bg-white text-blue-700 p-3 rounded-lg shadow-lg items-center justify-center">
+          <div class="hidden sm:flex bg-white text-red-700 p-3 rounded-lg shadow-lg items-center justify-center">
             <i class="fas fa-graduation-cap text-4xl"></i>
           </div>
         </div>
@@ -727,7 +727,7 @@ document.getElementById('numeroCliente').addEventListener('input', function(e) {
       <label for="senhaCoordenador" class="font-semibold mb-1 block">Senha do Coordenador:</label>
       <input type="password" id="senhaCoordenador" class="w-full border rounded px-3 py-2" placeholder="Digite a senha do coordenador" />
     </div>
-    <button type="button" class="bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded px-6 py-2 w-full mt-4 transition-colors duration-200" onclick="mostrarDelayBolsa()">Gerar Bolsa de Desconto</button>
+    <button type="button" class="bg-[#a3161d] hover:bg-[#8f1218] text-white font-semibold rounded px-6 py-2 w-full mt-4 transition-colors duration-200" onclick="mostrarDelayBolsa()">Gerar Bolsa de Desconto</button>
   `;
     }
     function mostrarCampoSenha() {
@@ -748,7 +748,7 @@ document.getElementById('numeroCliente').addEventListener('input', function(e) {
       const areaDesconto = document.getElementById("areaDesconto");
       areaDesconto.innerHTML = "";
       resultadoDiv.innerHTML = `
-        <div class="flex items-center gap-2 text-blue-600 font-semibold mt-2">
+        <div class="flex items-center gap-2 text-red-600 font-semibold mt-2">
           <i class="fas fa-spinner fa-spin"></i>
           Conectando aos servidores...
         </div>
