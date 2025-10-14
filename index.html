@@ -308,20 +308,21 @@
   <i class="fas fa-check-circle"></i> Copiado como imagem!
 </div>
 <script>
-    // Máscara de CPF ao digitar
-    document.addEventListener('DOMContentLoaded', function () {
-      const cpfInput = document.getElementById('cpfCliente');
-      if (cpfInput) {
-        cpfInput.addEventListener('input', function (e) {
-          let v = cpfInput.value.replace(/\D/g, '');
-          if (v.length > 11) v = v.slice(0, 11);
-          v = v.replace(/(\d{3})(\d)/, '$1.$2');
-          v = v.replace(/(\d{3})(\d)/, '$1.$2');
-          v = v.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
-          cpfInput.value = v;
-        });
-      }
-    });
+   <!-- ==================== MÁSCARAS DE INPUT ==================== -->
+<script>
+  // Máscara de CPF ao digitar
+  document.addEventListener('DOMContentLoaded', function () {
+    const cpfInput = document.getElementById('cpfCliente');
+    if (cpfInput) {
+      cpfInput.addEventListener('input', function () {
+        let v = cpfInput.value.replace(/\D/g, '');
+        if (v.length > 11) v = v.slice(0, 11);
+        v = v.replace(/(\d{3})(\d)/, '$1.$2');
+        v = v.replace(/(\d{3})(\d)/, '$1.$2');
+        v = v.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+        cpfInput.value = v;
+      });
+    }
 
     // Máscara de telefone (Número do Cliente)
     const numeroClienteInput = document.getElementById('numeroCliente');
@@ -346,17 +347,17 @@
       });
     }
   });
+</script>
 
 <!-- ==================== MODAL DE VÍDEO ==================== -->
+<script>
   const videosDoMenu = {
-    // seu código continua aqui...
+    inicio: { src: "videos/inicio.mp4", titulo: "Apresentação - Início" },
+    cursos: { src: "videos/cursos.mp4", titulo: "Informações sobre Cursos" },
+    propostas: { src: "videos/propostas.mp4", titulo: "Como fazer Propostas" },
+    contato: { src: "videos/contato.mp4", titulo: "Fale Conosco" }
   };
 
-      inicio: { src: "videos/inicio.mp4", titulo: "Apresentação - Início" },
-      cursos: { src: "videos/cursos.mp4", titulo: "Informações sobre Cursos" },
-      propostas: { src: "videos/propostas.mp4", titulo: "Como fazer Propostas" },
-      contato: { src: "videos/contato.mp4", titulo: "Fale Conosco" }
-    };
 
     function abrirModalVideo(tipo) {
       const modal = document.getElementById('videoModal');
