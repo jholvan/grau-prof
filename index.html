@@ -301,52 +301,61 @@
         </div>
         <div id="printArea" class="hidden"></div>
       </div>
-    </div>
-  </div>
-  <div id="copySuccessMsg">
-    <i class="fas fa-check-circle"></i> Copiado como imagem!
-  </div>
-  <script>
-    // Máscara de CPF ao digitar
-    document.addEventListener('DOMContentLoaded', function () {
-      const cpfInput = document.getElementById('cpfCliente');
-      if (cpfInput) {
-        cpfInput.addEventListener('input', function (e) {
-          let v = cpfInput.value.replace(/\D/g, '');
-          if (v.length > 11) v = v.slice(0, 11);
-          v = v.replace(/(\d{3})(\d)/, '$1.$2');
-          v = v.replace(/(\d{3})(\d)/, '$1.$2');
-          v = v.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
-          cpfInput.value = v;
-        });
-      }
-    });
+   </div>
+</div>
 
-    <script>
-document.getElementById('numeroCliente').addEventListener('input', function(e) {
-  let valor = e.target.value.replace(/\D/g, ''); // remove tudo que não é número
-  if (valor.length > 11) valor = valor.slice(0, 11);
+<div id="copySuccessMsg">
+  <i class="fas fa-check-circle"></i> Copiado como imagem!
+</div>
 
-  if (valor.length > 6) {
-    if (valor.length === 11) {
-      // formato (00)00000-0000 → celular
-      e.target.value = `(${valor.slice(0,2)})${valor.slice(2,7)}-${valor.slice(7)}`;
-    } else {
-      // formato (00)0000-0000 → fixo
-      e.target.value = `(${valor.slice(0,2)})${valor.slice(2,6)}-${valor.slice(6)}`;
+<!-- ==================== MÁSCARAS DE INPUT ==================== -->
+<script>
+  // Máscara de CPF ao digitar
+  document.addEventListener('DOMContentLoaded', function () {
+    const cpfInput = document.getElementById('cpfCliente');
+    if (cpfInput) {
+      cpfInput.addEventListener('input', function () {
+        let v = cpfInput.value.replace(/\D/g, '');
+        if (v.length > 11) v = v.slice(0, 11);
+        v = v.replace(/(\d{3})(\d)/, '$1.$2');
+        v = v.replace(/(\d{3})(\d)/, '$1.$2');
+        v = v.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+        cpfInput.value = v;
+      });
     }
-  } else if (valor.length > 2) {
-    e.target.value = `(${valor.slice(0,2)})${valor.slice(2)}`;
-  } else if (valor.length > 0) {
-    e.target.value = `(${valor}`;
-  }
-});
+
+    // Máscara de telefone (Número do Cliente)
+    const numeroClienteInput = document.getElementById('numeroCliente');
+    if (numeroClienteInput) {
+      numeroClienteInput.addEventListener('input', function (e) {
+        let valor = e.target.value.replace(/\D/g, '');
+        if (valor.length > 11) valor = valor.slice(0, 11);
+
+        if (valor.length > 6) {
+          if (valor.length === 11) {
+            // celular: (00)00000-0000
+            e.target.value = `(${valor.slice(0,2)})${valor.slice(2,7)}-${valor.slice(7)}`;
+          } else {
+            // fixo: (00)0000-0000
+            e.target.value = `(${valor.slice(0,2)})${valor.slice(2,6)}-${valor.slice(6)}`;
+          }
+        } else if (valor.length > 2) {
+          e.target.value = `(${valor.slice(0,2)})${valor.slice(2)}`;
+        } else if (valor.length > 0) {
+          e.target.value = `(${valor}`;
+        }
+      });
+    }
+  });
 </script>
 
+<!-- ==================== MODAL DE VÍDEO ==================== -->
+<script>
+  const videosDoMenu = {
+    // seu código continua aqui...
+  };
+</script>
 
-
-    // ==================== MODAL DE VÍDEO ====================
-    const videosDoMenu = {
       inicio: { src: "videos/inicio.mp4", titulo: "Apresentação - Início" },
       cursos: { src: "videos/cursos.mp4", titulo: "Informações sobre Cursos" },
       propostas: { src: "videos/propostas.mp4", titulo: "Como fazer Propostas" },
