@@ -756,7 +756,7 @@ document.getElementById('numeroCliente').addEventListener('input', function(e) {
         </div>
       `;
       setTimeout(() => {
-        resultadoDiv.innerHTML = resultadoDiv.innerHTML.replace(/<div class="flex items-center gap-2 text-blue-600 font-semibold mt-2">[\s\S]*?<\/div>/, "");
+        resultadoDiv.innerHTML = resultadoDiv.innerHTML.replace(/<div class="flex items-center gap-2 text-red-600 font-semibold mt-2">[\s\S]*?<\/div>/, "");
         gerarBolsaDesconto(descontoValor, senhaValor);
       }, 1500);
     }
