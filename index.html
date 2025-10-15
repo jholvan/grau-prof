@@ -839,10 +839,10 @@ Curso: ${cursoSelecionado}
 Turno: ${turnoSelecionado}
 Modalidade: ${resumoModalidade}
 ${linhaInicioTurmaTexto}Dias de aula: ${resumoDiasAula}
-Valor cheio: R$ ${precoCheio.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+Valor cheio: R$ ${precoCheio.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
 Desconto: ${descontoStr}%
-Valor com desconto: R$ ${valorFinal.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
-Parcelas: ${parcelas}x de R$ ${valorParcela.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+Valor com desconto: R$ ${valorFinal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+Parcelas: ${parcelas}x de R$ ${valorParcela.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
 ${usuarioAutenticado ? usuarioAutenticado.cargo + ': ' + usuarioAutenticado.nome : ''}
 Proposta válida até: ${dataEncerramentoBR}
   `;
@@ -895,10 +895,10 @@ const resumoHTML = `
     </div>
     ${blocoDisciplinas}
     <div class="mb-2">
-      <b>Valor cheio:</b> <span class="line-through text-red-600">R$ ${precoCheio.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span><br>
+      <b>Valor cheio:</b> <span class="line-through text-red-600">R$ ${precoCheio.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span><br>
       <b>Desconto:</b> <span class="text-green-700 font-bold">${descontoStr}%</span><br>
-      <b>Valor com desconto:</b> <span class="text-green-600 font-bold text-xl">R$ ${valorFinal.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span><br>
-      <b>Parcelamento:</b> <span class="text-green-700">${parcelas}x</span> de <span class="text-green-700 font-bold">R$ ${valorParcela.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
+      <b>Valor com desconto:</b> <span class="text-green-600 font-bold text-xl">R$ ${valorFinal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span><br>
+      <b>Parcelamento:</b> <span class="text-green-700">${parcelas}x</span> de <span class="text-green-700 font-bold">R$ ${valorParcela.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
     </div>
     <div class="mb-2">
       <span style="font-weight:bold; color:#444; display:inline-block; margin-top:12px;">
