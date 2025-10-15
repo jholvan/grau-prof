@@ -614,7 +614,7 @@ document.getElementById('numeroCliente').addEventListener('input', function(e) {
       document.getElementById("areaDesconto").innerHTML = "";
       setTimeout(() => {
         mostrarInfoTurma();
-      }, 1000);
+      }, 5000);
     }
     function mostrarInfoTurma() {
       const numeroClienteRaw = document.getElementById("numeroCliente").value.trim();
@@ -758,7 +758,7 @@ document.getElementById('numeroCliente').addEventListener('input', function(e) {
       setTimeout(() => {
         resultadoDiv.innerHTML = resultadoDiv.innerHTML.replace(/<div class="flex items-center gap-2 text-red-600 font-semibold mt-2">[\s\S]*?<\/div>/, "");
         gerarBolsaDesconto(descontoValor, senhaValor);
-      }, 1500);
+      }, 7000);
     }
 
     function gerarBolsaDesconto(descontoStr, senhaCoordenador) {
