@@ -173,6 +173,26 @@ input:focus, select:focus {
         max-width: 100vw;
         height: auto;
       }
+        @media (max-width: 600px) {
+  .logo-canto {
+    width: 80px;
+    top: 10px;
+    right: 10px;
+  }
+  #alertaUltimaBolsa {
+    margin-top: 80px; /* Espaço extra só no mobile */
+    font-size: 1.0rem;
+    padding: 7px 2px;
+  }
+}
+#alertaUltimaBolsa {
+  position: relative;
+  z-index: 2;
+}
+.logo-canto {
+  position: absolute;
+  z-index: 3;
+}
     }
   </style>
 </head>
@@ -881,8 +901,10 @@ if (descontoStr === "35") {
 // CPF exibido logo após número do cliente
 const resumoHTML = `
   <div id="areaParaCopiarImagem" class="mt-6 bg-yellow-100 border border-yellow-200 rounded-lg p-6 text-black relative fade-in">
+    <div class="relative">
     ${alertaUltimaBolsaHTML}
     <img src="imagens/grau.png" class="logo-canto" alt="Logo">
+    </div>
     <h2 class="text-2xl font-bold mb-2">Resumo da Proposta</h2>
     <div class="mb-2"><b>Cliente:</b> ${nomeCliente} <br>
       <b>Nº Cliente:</b> ${numeroCliente} <br>
