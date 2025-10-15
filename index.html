@@ -872,7 +872,7 @@ Proposta válida até: ${dataEncerramentoBR}
 let alertaUltimaBolsaHTML = '';
 if (descontoStr === "35") {
   alertaUltimaBolsaHTML = `
-    <div class="inline-block bg-yellow-300 border-l-4 border-yellow-500 text-red-800 p-3 mb-4 rounded-lg shadow-md font-bold text-center text-lg">
+    <div id="alertaUltimaBolsa" class="inline-block bg-yellow-300 border-l-4 border-yellow-500 text-red-800 p-3 mb-4 rounded-lg shadow-md font-bold text-center text-lg">
       🚨 AVISO: ÚLTIMA BOLSA DISPONÍVEL! 🚨
     </div>
   `;
@@ -958,21 +958,23 @@ const resumoHTML = `
     }
 
     function iniciarTimer(segundos) {
-      const timerDiv = document.getElementById("timer");
-      let tempoRestante = segundos;
+  const timerDiv = document.getElementById("timer");
+  timerDiv.style.display = "block"; // <-- Mostra o timer
+  let tempoRestante = segundos;
+  clearInterval(countdownInterval);
+  atualizarTimer();
+  countdownInterval = setInterval(() => {
+    tempoRestante--;
+    atualizarTimer();
+    if (tempoRestante <= 0) {
       clearInterval(countdownInterval);
-      atualizarTimer();
-      countdownInterval = setInterval(() => {
-        tempoRestante--;
-        atualizarTimer();
-        if (tempoRestante <= 0) {
-          clearInterval(countdownInterval);
-          timerDiv.innerHTML = `<i class="fas fa-hourglass-end"></i> Proposta expirada! Gere novamente para continuar.`;
-          document.getElementById("resultado").innerHTML = "";
-          document.getElementById("areaDesconto").innerHTML = "";
-          document.getElementById("alertaUltimaBolsa").style.display = "none";
-        }
-      }, 1000);
+      timerDiv.innerHTML = `<i class="fas fa-hourglass-end"></i> Proposta expirada! Gere novamente para continuar.`;
+      document.getElementById("resultado").innerHTML = "";
+      document.getElementById("areaDesconto").innerHTML = "";
+      const alerta = document.getElementById("alertaUltimaBolsa");
+      if (alerta) alerta.style.display = "none";
+    }
+  }, 1000);
       function atualizarTimer() {
         const min = Math.floor(tempoRestante / 60);
         const sec = tempoRestante % 60;
@@ -1000,7 +1002,8 @@ const resumoHTML = `
   document.getElementById("formDesconto").reset();
   document.getElementById("resultado").innerHTML = "";
   document.getElementById("areaDesconto").innerHTML = "";
-  document.getElementById("alertaUltimaBolsa").style.display = "none";
+  const alerta = document.getElementById("alertaUltimaBolsa");
+  if (alerta) alerta.style.display = "none";
 
   // 🔹 Para e esconde o timer
   clearInterval(countdownInterval);
