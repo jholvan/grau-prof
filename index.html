@@ -760,8 +760,12 @@ document.getElementById('numeroCliente').addEventListener('input', function(e) {
       <label for="senhaCoordenador" class="font-semibold mb-1 block">Senha do Coordenador:</label>
       <input type="password" id="senhaCoordenador" class="w-full border rounded px-3 py-2" placeholder="Digite a senha do coordenador" />
     </div>
-    <button type="button" class="bg-[#a3161d] hover:bg-[#8f1218] text-white font-semibold rounded px-6 py-2 w-full mt-4 transition-colors duration-200" onclick="mostrarDelayBolsa()">Gerar Bolsa de Desconto</button>
+    <button type="submit" class="bg-[#a3161d] hover:bg-[#8f1218] text-white font-semibold rounded px-6 py-2 w-full mt-4 transition-colors duration-200"> Gerar Bolsa de Desconto </button>
   `;
+   // A PARTIR DAQUI, ENTER GERA A BOLSA
+  document.getElementById("formDesconto").onsubmit = function (e) {
+    e.preventDefault();
+    exibirConexaoServidor();
     }
     function mostrarCampoSenha() {
       const descontoSelecionado = document.getElementById("desconto").value;
